@@ -18,7 +18,7 @@ var Table = React.createClass({
     };
   },
   sortByColumn: function(category){
-    
+    console.log(category);
   },
   render: function(){
     var headers = Object.keys(this.state.data[0]);
