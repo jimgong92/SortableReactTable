@@ -18,7 +18,23 @@ var Table = React.createClass({
     };
   },
   sortByColumn: function(category){
-    console.log(category);
+    var data = copy(this.state.data);
+    var len = data.length;
+
+    for (var i = 0; i < len - 1; i++){
+      for (var j = i + 1; j < len; j++){
+        if (data[i][category] > data[j][category]){
+          var temp = data[i];
+          data[i] = data[j];
+          data[j] = temp;
+        }
+      }
+    }
+    console.log(data);
+    this.setState({
+      data: data,
+      orderedBy: category
+    });
   },
   render: function(){
     var headers = Object.keys(this.state.data[0]);
@@ -34,5 +50,11 @@ var Table = React.createClass({
     );
   }
 });
-
+function copy(arr){
+  var copiedArr = [];
+  for(var i = 0; i < arr.length; i++){
+    copiedArr.push(arr[i]);
+  }
+  return copiedArr;
+}
 module.exports = Table;
