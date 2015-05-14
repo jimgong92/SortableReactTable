@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactPropTypes = React.PropTypes;
+var utils = require('../utils');
 
 /**
  * Component Dependencies
@@ -19,25 +20,16 @@ var Table = React.createClass({
   },
   sortByColumn: function(category){
     if (this.state.orderedBy !== category) {
-      var data = copy(this.state.data);
-      var len = data.length;
-
-      for (var i = 0; i < len - 1; i++){
-        for (var j = i + 1; j < len; j++){
-          if (data[i][category] > data[j][category]){
-            var temp = data[i];
-            data[i] = data[j];
-            data[j] = temp;
-          }
-        }
-      }
+      console.log(this.state.data);
+      var sorted = utils.sortByCategory(utils.copy(this.state.data), category);
       this.setState({
-        data: data,
+        data: sorted,
         orderedBy: category
       });
     }
   },
   render: function(){
+    console.log(this.state.data);
     var headers = Object.keys(this.state.data[0]);
     return (
       <table className="sortable-table">
