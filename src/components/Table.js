@@ -20,7 +20,6 @@ var Table = React.createClass({
   },
   sortByColumn: function(category){
     if (this.state.orderedBy !== category) {
-      console.log(this.state.data);
       var sorted = utils.sortByCategory(utils.copy(this.state.data), category);
       this.setState({
         data: sorted,
@@ -29,7 +28,6 @@ var Table = React.createClass({
     }
   },
   render: function(){
-    console.log(this.state.data);
     var headers = Object.keys(this.state.data[0]);
     return (
       <table className="sortable-table">
@@ -43,11 +41,5 @@ var Table = React.createClass({
     );
   }
 });
-function copy(arr){
-  var copiedArr = [];
-  for(var i = 0; i < arr.length; i++){
-    copiedArr.push(arr[i]);
-  }
-  return copiedArr;
-}
+
 module.exports = Table;
