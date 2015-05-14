@@ -14,14 +14,14 @@ var TableHeader = React.createClass({
     var element = this;
     var headers = this.props.headers.map(function(header){
       return (
-        <th className="header-cells">
+        <th className="header-cell">
             {header}
         </th>
       );
     });
     return (
       <thead className="header">
-        <tr className="header-rows">
+        <tr className="header-row">
           {headers}
         </tr>
       </thead>

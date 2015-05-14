@@ -24,8 +24,12 @@ var Table = React.createClass({
     var headers = Object.keys(this.state.data[0]);
     return (
       <table className="sortable-table">
-        <TableHeader headers={headers} sort={this.sortByColumn}/>
-        <TableBody />
+        <TableHeader 
+          headers={headers} 
+          sort={this.sortByColumn} />
+        <TableBody 
+          data={this.state.data} 
+          categories={headers} />
       </table>
     );
   }
