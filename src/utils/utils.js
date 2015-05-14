@@ -30,5 +30,5 @@ function sortByCategory(array, category, left, right){
 
 module.exports = {
   copy: copyArr,
-  sortByCategory: quickSort
+  sortByCategory: sortByCategory
 };

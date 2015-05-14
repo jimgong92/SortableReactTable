@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactPropTypes = React.PropTypes;
-var utils = require('../utils');
+var utils = require('../utils/utils');
 
 /**
  * Component Dependencies
