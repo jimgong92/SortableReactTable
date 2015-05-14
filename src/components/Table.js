@@ -18,23 +18,24 @@ var Table = React.createClass({
     };
   },
   sortByColumn: function(category){
-    var data = copy(this.state.data);
-    var len = data.length;
+    if (this.state.orderedBy !== category) {
+      var data = copy(this.state.data);
+      var len = data.length;
 
-    for (var i = 0; i < len - 1; i++){
-      for (var j = i + 1; j < len; j++){
-        if (data[i][category] > data[j][category]){
-          var temp = data[i];
-          data[i] = data[j];
-          data[j] = temp;
+      for (var i = 0; i < len - 1; i++){
+        for (var j = i + 1; j < len; j++){
+          if (data[i][category] > data[j][category]){
+            var temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+          }
         }
       }
+      this.setState({
+        data: data,
+        orderedBy: category
+      });
     }
-    console.log(data);
-    this.setState({
-      data: data,
-      orderedBy: category
-    });
   },
   render: function(){
     var headers = Object.keys(this.state.data[0]);
