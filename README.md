@@ -6,4 +6,6 @@ A react table component that dynamically receives data with React props and can 
 
 ```
 npm install
+gulp
+npm start
 ```
